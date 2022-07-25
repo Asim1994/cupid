@@ -23,3 +23,10 @@ use App\PartnerPreference;
 
      return  ($final_percentage); 
 }
+
+ function Age($dob){
+     $diff = date_diff(date_create($dob), date_create(date("Y-m-d")));
+     $age = $diff->format('%y');
+     return  ($age);
+
+}

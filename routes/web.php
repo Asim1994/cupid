@@ -27,6 +27,9 @@ Route::get('/home', function () {
                     }
                     
  })->name('home');
+
+Route::get('auth/google', 'GoogleController@redirectToGoogle');
+Route::get('auth/google/callback', 'GoogleController@handleGoogleCallback');
    
 
 Route::group(['middleware' => ['user']], function () {
@@ -37,10 +40,8 @@ Route::group(['middleware' => ['user']], function () {
 }); 
 
 Route::group(['middleware' => ['admin']], function () {
-Route::get('/admin/home', 'HomeController@adminindex')->name('admin.home');
-Route::get('/ajax-users', 'HomeController@ajax_all_users');
- Route::get('/admin/all-user-filter/{id?}', 'HomeController@filter_all_users');
+	Route::get('/admin/home', 'HomeController@adminindex')->name('admin.home');
+	Route::get('/ajax-users', 'HomeController@ajax_all_users');
+	Route::get('/admin/all-user-filter/{id?}', 'HomeController@filter_all_users');
  
- 
-
 });

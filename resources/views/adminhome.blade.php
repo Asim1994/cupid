@@ -52,6 +52,11 @@ $ages = Request::has('age') ? Request::get('age') : [];
 
                  <li> <input type="range"  class="range" name="max_price" min="10" max="20000" value="20000" id="upper"></li>
                   @endif
+                  <li>  Min: <input id="one" readonly="">
+                  <label for="one"> </label></li> 
+                   <li>  Max: <input id="two" readonly="">
+                    <label for="two"> </label></li>
+                       
          
       </ul>
 
@@ -82,10 +87,10 @@ $ages = Request::has('age') ? Request::get('age') : [];
                 <th>Manglik</th>
               </tr>
              @forelse($all_users as $all_user)
-               @php $diff = date_diff(date_create($all_user['dob']), date_create(date("Y-m-d")));  @endphp
+               
               <tr class="show_here">
                 <td>{{$all_user['first_name']}}  {{$all_user['last_name']}}</td>
-                <td> {{ $diff->format('%y') }} yrs</td>
+                <td> {{ Age($all_user['dob']) }} yrs</td>
                 <td>{{$all_user['gender']}}</td>
                 <td>{{$all_user['annual_income']}}</td>
                 <td>{{$all_user['family_type']}}</td>

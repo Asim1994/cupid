@@ -7,10 +7,9 @@
 <html>
 <!-- head -->
 
-<!-- Mirrored from demo.w3layouts.com/demos_new/template_demo/07-06-2017/match-demo_Free/360227837/web/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 24 Jul 2022 07:37:32 GMT -->
-<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+ 
 <head>
-<title>Match a Matrimonial Category Bootstrap Responsive Web Template | index :: w3layouts</title>
+ 
 <link href="{{asset('css/bootstrap.css')}}" rel="stylesheet" type="text/css" media="all" /><!-- bootstrap-CSS -->
 <link href="{{asset('css/font-awesome.css')}}" rel="stylesheet" type="text/css" media="all" /><!-- Fontawesome-CSS -->
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -62,11 +61,7 @@
                             <ul id="flexiselDemo3">
                                 <li>
                                   @forelse($all_users as $all_user)
-                                  @php $diff = date_diff(date_create($all_user['dob']), date_create(date("Y-m-d"))); 
-                                  
-
-                                  @endphp
-                                    <div class="col-md-3 biseller-column">
+                                   <div class="col-md-3 biseller-column">
                                         <a href="#">
                                             <div class="profile-image">
                                                 <img src="{{asset('images/p1.jpg')}}" class="img-responsive" alt="profile image">
@@ -79,7 +74,7 @@
                                                         <li><span>Family Type</span>: {{$all_user['family_type']}}</li>
                                                         <li><span>Manglik</span>: {{$all_user['manglik']}}</li>
                                                         <li><span>Match %</span>:  {{ CheckMatchingPercentage($all_user['annual_income'],$all_user['occupation'],$all_user['family_type'],$all_user['manglik']) }}% </li>
-                                                         <li><span>Age</span>: {{ $diff->format('%y') }} yrs</li>
+                                                         <li><span>Age</span>: {{ Age($all_user['dob']) }} yrs</li>
                                                        
                                                     </ul>
                                                 </div>
